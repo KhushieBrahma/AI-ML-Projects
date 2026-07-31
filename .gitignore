@@ -216,3 +216,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Python virtual environments
+venv/
+rl_env/
+dl_env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Large generated recommendation model
+07-Movie-Recommendation-System/models/similarity.pkl
+
+# Large generated model files
+07-Movie-Recommendation-System/models/similarity.pkl

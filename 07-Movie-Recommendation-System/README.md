@@ -1,0 +1,113 @@
+# 🎬 Movie Recommendation System
+
+## 📌 Project Overview
+
+This project implements a **Content-Based Movie Recommendation System** using the TMDB 5000 Movie Dataset.
+
+The recommendation engine suggests movies similar to a selected movie by comparing genres, keywords, cast, director, and movie overview using Natural Language Processing (NLP) techniques and Cosine Similarity.
+
+---
+
+## 🎯 Objective
+
+Build a recommendation engine that recommends movies based on content similarity rather than user ratings.
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- NLTK
+- Pickle
+- Jupyter Notebook
+
+---
+
+## 📂 Dataset
+
+TMDB 5000 Movie Dataset
+
+Files used:
+
+- tmdb_5000_movies.csv
+- tmdb_5000_credits.csv
+
+---
+
+## ⚙️ Workflow
+
+1. Load movie and credits datasets.
+2. Merge datasets.
+3. Select useful features.
+4. Clean missing values.
+5. Extract genres, keywords, cast, and director.
+6. Create a combined "tags" feature.
+7. Apply stemming.
+8. Convert text into vectors using CountVectorizer.
+9. Calculate movie similarity using Cosine Similarity.
+10. Recommend the Top 5 most similar movies.
+
+---
+
+## 📊 Machine Learning Concepts
+
+- Natural Language Processing (NLP)
+- Feature Engineering
+- CountVectorizer
+- Cosine Similarity
+- Content-Based Recommendation
+
+---
+
+## 📸 Screenshots
+
+- Dataset Loaded
+- Dataset Shape
+- Merged Dataset
+- Feature Engineering
+- Vector Shape
+- Similarity Matrix
+- Recommendation Output
+- Saved Models
+
+---
+
+## 📁 Project Structure
+
+```
+07-Movie-Recommendation-System/
+│
+├── data/
+│   ├── tmdb_5000_movies.csv
+│   └── tmdb_5000_credits.csv
+│
+├── models/
+│   ├── movie_list.pkl
+│   └── similarity.pkl
+│
+├── notebook/
+│   └── Movie_Recommendation_System.ipynb
+│
+├── screenshots/
+│
+├── README.md
+└── requirements.txt
+```
+
+---
+
+## 🚀 Future Improvements
+
+- Add collaborative filtering.
+- Build a Streamlit web application.
+- Include movie posters using the TMDB API.
+- Recommend movies based on user preferences.
+
+---
+
+## 👩‍💻 Author
+
+**Khushie Brahma**
