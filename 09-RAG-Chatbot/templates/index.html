@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RAG Document Chatbot</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 45px auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            margin: 12px 0;
+            padding: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 110px;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            resize: vertical;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 11px 22px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .status {
+            padding: 14px;
+            background: #eef4ff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .footer {
+            text-align: center;
+            color: #777;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>📄 RAG Document Chatbot</h1>
+
+        <p>
+            Upload a PDF and ask questions using
+            Retrieval-Augmented Generation.
+        </p>
+
+    </div>
+
+
+    {% if message %}
+
+    <div class="status">
+        {{ message }}
+    </div>
+
+    {% endif %}
+
+
+    <div class="card">
+
+        <h2>1. Upload Document</h2>
+
+        <form action="/upload"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="pdf"
+                accept=".pdf"
+                required
+            >
+
+            <button type="submit">
+                Process PDF
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>2. Ask a Question</h2>
+
+        <form action="/ask" method="POST">
+
+            <textarea
+                name="question"
+                placeholder="Ask something about the uploaded document..."
+                required>{{ question or '' }}</textarea>
+
+            <button type="submit">
+                Ask Chatbot
+            </button>
+
+        </form>
+
+    </div>
+
+
+    {% if answer %}
+
+    <div class="card">
+
+        <h2>Answer</h2>
+
+        <div class="question">
+            You: {{ question }}
+        </div>
+
+        <div class="answer">
+            {{ answer }}
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <div class="footer">
+        Gemini + FAISS Retrieval-Augmented Generation
+    </div>
+
+</div>
+
+</body>
+
+</html>
